@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+	<title>HandyMan</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="custom.css">
+</head>
+
+<body role="document">
+	<!-- Fixed navbar -->
+	<div class="navbar navbar-inverse" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button> <a class="navbar-brand" href="home.html">HandyMan</a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav pull-right">
+					<li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cities <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Post A Project</a></li>
+							<li><a href="#">Find Contractor</a></li>
+							<li><a href="#">Find Projects</a></li>
+						</ul>
+					</li>
+					<li><a href="how-its-works.html">How It Works</a></li>
+					<li class="dropdown"> <a href="how-it-works.html" class="dropdown-toggle" data-toggle="dropdown">Services <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Post A Project</a></li>
+							<li><a href="#">Find Contractor</a></li>
+							<li><a href="#">Find Projects</a></li>
+						</ul>
+					</li>
+					<li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">SignUp <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Contractor SignUp</a></li>
+							<li><a href="#">HomeOwner SignUp</a></li>
+						</ul>
+					</li>
+					<li><a href="#">Login</a></li>
+				</ul>
+			</div>
+			<!--/.nav-collapse -->
+		</div>
+	</div>		
+	
+	<div class="container">
+		<div class="row-fluid margTop20 margBot20">
+		<div class="postJobLeft col-md-8">
+			<div class="row-fluid" id="postaprojectdiv">
+				<form name="postajob" method="post" action="" class="form-horizontal" onsubmit="return postaprojectValidation();">
+					<input type="hidden" name="action" id="post_new_pjt" value=""/>
+                    <input type="hidden" id="sesuserid" name="sesuserid" value=""/>
+					<input type="hidden" id="typeofpost" name="typeofpost" value=""/>
+					<input type="hidden" id="invitejob" name="invitejob" value=""/>
+					
+					<div class="postJobBox col-md-12 offset0">
+						<span class="registerHead">Select Project Type</span>
+						
+						<ul class="postProjUl">
+							<li class="control-group marg0">
+								<div class="control-label">
+									<label for="business_name">Select Project Type<span class="starcolor">*</span></label>
+								</div>
+								<div class="controls">
+									<select class="form-control">
+										<option>Please Select</option>
+										<option value="1">Architects</option>
+										<option value="2">Basements</option>
+										<option value="3">Bathrooms</option>
+										<option value="138">Carpet and Upholstery Cleaning</option>
+										<option value="4">Concrete & Masonry</option>
+										<option value="5">Decks</option>
+										<option value="6">Dormers & Extensions</option>
+										<option value="7">Driveways</option>
+										<option value="8">Electricians</option>
+										<option value="9">Fencing</option>
+										<option value="10">Flooring Specialists</option>
+										<option value="11">Framing</option>
+										<option value="12">General Contractors</option>
+										<option value="13">Gutters</option>
+										<option value="14">Heating & Cooling</option>
+										<option value="15">Insulation</option>
+										<option value="16">Kitchens</option>
+										<option value="17">Landscaping</option>
+										<option value="18">Painters</option>
+										<option value="19">Plumbing</option>
+										<option value="20">Roofing</option>
+										<option value="21">Siding</option>
+										<option value="22">Sunrooms</option>
+										<option value="23">Windows, Doors & Skylights</option>
+									</select>
+									
+									<label class="postProjErr jobcategory"></label>
+								</div>
+							</li>
+						</ul>
+                        <div id="form-field-div-client" class="contain"></div>
+						
+						 
+					</div>
+					<div class="postJobBox col-md-12 offset0">
+						<span class="registerHead">Describe What Needs To Be Done.</span>
+						<ul class="postProjUl">
+							
+							<li class="control-group">
+								<div class="control-label">
+									<label for="business_name">Project Description  <span class="starcolor">*</span></label>
+								</div>
+								<div class="controls">
+									<textarea class="form-control" rows="3"></textarea>
+									<label class="postProjErr jobdesc"></label>
+								</div>
+							</li>
+							<li class="control-group">
+								<div class="control-label">
+									<label for="business_name">Ideal Start Date<span class="starcolor">*</span></label>
+								</div>
+								<div class="controls">
+									<select class="form-control" name="idealstartdate" id="idealstartdate" size="1">
+										<option>Select One</option>
+										<option value="Now">Now</option>	
+										<option value="1-Week">1-Week</option>
+										<option value="2-Weeks">2-Weeks</option>
+										<option value="3-Weeks">3-Weeks</option>
+										<option value="1-2 Months">1-2 Months</option>	
+										<option value="3-6 Months">3-6 Months</option>	
+									</select>
+									<label class="postProjErr idealstartdate"></label>
+								</div>
+							</li>
+							<li class="control-group">
+								<div class="control-label">
+									<label for="business_name">Select the Appropriate Status for this Project<span class="starcolor">*</span></label>
+								</div>
+								<div class="controls">
+									<select class="form-control" name="sel_aprostatus" id="sel_aprostatus" size="1">
+										<option>Select One</option>
+										<option value="Ready to Hire">Ready to Hire</option>	
+										<option value="Planning and Budgeting">Planning and Budgeting</option>	
+									</select>
+									<label class="postProjErr sel_aprostatus"></label>
+								</div>
+							</li>
+							<li class="control-group">
+								<div class="control-label">
+									<label for="business_name">Your Request Completion Time Frame<span class="starcolor">*</span></label>
+								</div>
+								<div class="controls">
+									<select class="form-control" name="sel_completion" id="sel_completion" size="1">
+										<option>Select One</option>
+										<option value="Timing is Flexible">Timing is Flexible</option>	
+										<option value="Less than 2 months">Less than 2 months</option>
+										<option value="More than 2 months">More than 2 months</option>	
+									</select>
+									<label class="postProjErr sel_completion"></label>
+								</div>
+							</li>
+							<li class="control-group ">
+								<div class="control-label">
+									<label for="business_name">Do You Own the Property<span class="starcolor">*</span></label>
+								</div>
+								<div class="controls">
+									<label class="checkbox pull-right" for="won_pro1">
+										<input class="radio" type="radio" id="won_pro1" value="Yes" name="won_pro" />
+										Yes
+									</label>
+									<label class="checkbox pull-right padTop5" for="won_pro2">
+										<input class="radio" type="radio" id="won_pro2" value="No" name="won_pro" />
+										No
+									</label>
+									<label class="postProjErr won_pro clr"></label>
+									<div style="clear:both;"><br></div>
+								</div>
+							</li>
+							<li class="control-group">
+								<div class="control-label">
+									<label for="business_name">Address<span class="starcolor">*</span></label>
+								</div>
+								<div class="controls">
+									<textarea class="form-control" id="address" name="address"></textarea>
+									<label class="postProjErr address"></label>
+								</div>
+							</li>
+							<li class="control-group">
+								<div class="control-label">
+									<label for="business_name">State<span class="starcolor">*</span></label>
+								</div>
+								<div class="controls">
+									<select  class="form-control" id="state" name="state" onchange="return getcitylist(this.value);">
+										<option>Please Select</option>
+																					<option value="AL">Alabama</option>
+																					<option value="AK">Alaska</option>
+																					<option value="AS">American Samoa</option>
+																					<option value="AZ">Arizona</option>
+																					<option value="AR">Arkansas</option>
+																					<option value="AA">Armed Forces Americas</option>
+																					<option value="AE">Armed Forces Middle East</option>
+																					<option value="AP">Armed Forces Pacific</option>
+																					<option value="CA">California</option>
+																					<option value="CO">Colorado</option>
+																					<option value="CT">Connecticut</option>
+																					<option value="DE">Delaware</option>
+																					<option value="DC">District of Columbia</option>
+																					<option value="FM">Federated States of Micronesia</option>
+																					<option value="FL">Florida</option>
+																					<option value="GA">Georgia</option>
+																					<option value="GU">Guam</option>
+																					<option value="HI">Hawaii</option>
+																					<option value="ID">Idaho</option>
+																					<option value="IL">Illinois</option>
+																					<option value="IN">Indiana</option>
+																					<option value="IA">Iowa</option>
+																					<option value="KS">Kansas</option>
+																					<option value="KY">Kentucky</option>
+																					<option value="LA">Louisiana</option>
+																					<option value="ME">Maine</option>
+																					<option value="MH">Marshall Islands</option>
+																					<option value="MD">Maryland</option>
+																					<option value="MA">Massachusetts</option>
+																					<option value="MI">Michigan</option>
+																					<option value="MN">Minnesota</option>
+																					<option value="MS">Mississippi</option>
+																					<option value="MO">Missouri</option>
+																					<option value="MT">Montana</option>
+																					<option value="NE">Nebraska</option>
+																					<option value="NV">Nevada</option>
+																					<option value="NH">New Hampshire</option>
+																					<option value="NJ">New Jersey</option>
+																					<option value="NM">New Mexico</option>
+																					<option value="NY">New York</option>
+																					<option value="NC">North Carolina</option>
+																					<option value="ND">North Dakota</option>
+																					<option value="MP">Northern Mariana Islands</option>
+																					<option value="OH">Ohio</option>
+																					<option value="OK">Oklahoma</option>
+																					<option value="OR">Oregon</option>
+																					<option value="PW">Palau</option>
+																					<option value="PA">Pennsylvania</option>
+																					<option value="PR">Puerto Rico</option>
+																					<option value="RI">Rhode Island</option>
+																					<option value="SC">South Carolina</option>
+																					<option value="SD">South Dakota</option>
+																					<option value="TN">Tennessee</option>
+																					<option value="TX">Texas</option>
+																					<option value="UT">Utah</option>
+																					<option value="VT">Vermont</option>
+																					<option value="VI">Virgin Islands</option>
+																					<option value="VA">Virginia</option>
+																					<option value="WA">Washington</option>
+																					<option value="WV">West Virginia</option>
+																					<option value="WI">Wisconsin</option>
+																					<option value="WY">Wyoming</option>
+																			</select>
+									<label class="postProjErr state"></label>
+								</div>
+							</li>
+							<li class="control-group">
+								<div class="control-label">
+									<label for="business_name">City<span class="starcolor">*</span></label>
+								</div>
+								<div class="controls">
+									<div id="citylistdiv">
+										<select  class="form-control" name="city" id="city" title="Select City" onchange="return getzipcodeList('',this.value);">
+											<option >Select</option>	 
+																		
+										</select>	
+									</div>
+									<label class="postProjErr city"></label>
+								</div>
+							</li>
+							<li class="control-group">
+								<div class="control-label">
+									<label for="business_name">Zipcode<span class="starcolor">*</span></label>
+								</div>
+								<div class="controls">
+									<div id="zipcodelistdiv">
+										<select class="form-control" name="zipcode" id="zipcode" title="Select Zipcode">
+											 <option>Select</option>
+																		
+										</select>
+									</div>
+									<label class="postProjErr zipcode"></label>
+								</div>
+							</li>
+						</ul>
+					
+										</div>
+					<div class="postJobBox col-md-12 offset0">	
+										
+							<div class="col-md-12 offset0"  id="postProjectlogindetails">
+							  <div class="contain">
+									<span class="registerHead">Register with HandyMan</span>
+																			<div class="pull-right">
+											<a href="javascript:void(0);" class="already" id="alreadyacc"  onclick="return postProjectShowHide(1);">Already Have An Account?</a>
+										</div>
+																		<ul class="postProjUl margBot0">
+										<li class="control-group">
+											<div class="control-label">
+												<label for="business_name">First Name<span class="starcolor">*</span></label>
+											</div>
+											<div class="controls">
+												<input type="text" value="" id="homeown_fname" name="homeown_fname" class="form-control" />
+											 <label class="postProjErr homeown_fname"></label>
+											</div>
+										</li>
+                                        <li class="control-group">
+											<div class="control-label">
+												<label for="business_name">Last Name<span class="starcolor">*</span></label>
+											</div>
+											<div class="controls">
+												<input type="text" value="" id="homeown_lname" name="homeown_lname" class="form-control" />
+											 <label class="postProjErr homeown_lname"></label>
+											</div>
+										</li>
+										<li class="control-group">
+											<div class="control-label">
+												<label for="business_name">Phone Number<span class="starcolor">*</span></label>
+											</div>
+											<div class="controls">
+												<input type="text" value="" id="homeown_phone" name="homeown_phone" class="form-control" />
+												 <label class="postProjErr homeown_phone"></label>
+											</div>
+										</li>
+										<li class="control-group">
+											<div class="control-label">
+												<label for="business_name">Public Username<span class="starcolor">*</span></label>
+											</div>
+											<div class="controls">
+												<input type="text" value="" id="howeown_pname" name="howeown_pname" class="form-control" />
+												<label class="postProjErr howeown_pname"></label>
+											</div>
+										</li>
+										<li class="control-group">
+											<div class="control-label">
+												<label for="business_name">Email<span class="starcolor">*</span></label>
+											</div>
+											<div class="controls">
+												<input type="text" value="" id="homeown_email" name="homeown_email" name="" class="form-control" />
+												<label class="postProjErr homeown_email"></label>	
+											</div>
+										</li>
+										<li class="control-group">
+											<div class="empty control-label">
+												<label for="business_name">&nbsp;</label>
+											</div>
+											<div class="controls">
+												<span class="refreshCode captchaCode">
+													<span id="captchacode">78899</span>
+												</span>
+												<span class="refreshNew refreshCaptcha" onclick="return refrashCaptchacode();"></span>
+												
+												 <label class="postProjErr captcha clr"></label>
+											</div>
+										</li>
+										<li class="control-group">
+											<div class="control-label">
+												<label for="business_name">Captcha Code<span class="starcolor">*</span></label>
+											</div>
+											<div class="controls">
+												<input type="text" name="captcha" id="captcha-form" value="" class="form-control" />
+												 <span class="postProjErr captcha-form contain"></span>
+											</div>
+										</li>
+										
+										<li class="control-group">
+											<div class="empty control-label">
+												<label for="business_name">&nbsp;</label>
+											</div>
+											<div class="controls">
+												 <label class="checkbox pull-left" for="home_newsletter">
+													<input type="checkbox" value="Yes" id="home_newsletter" name="home_newsletter" class="conCheck marg5"/>
+													I'd like to add monthly news letter
+												 </label>
+											</div>
+										</li>
+										<li class="control-group">
+											<div class="empty control-label">
+												<label for="business_name">&nbsp;</label>
+											</div>
+											<div class="controls">
+												 <label class="checkbox pull-left" for="termscon">
+													<input type="checkbox" value="" id="termscon" name="termscon" class="conCheck marg5" />
+													I Accept And Agree To The <a href="http://www.justmail.in/platinum/static/terms-conditions/" class="terms" target="blank">Terms & Condition.<span class="starcolor">*</span></a>
+												 </label>
+												  <label class="postProjErr termscon clr"></label>
+											</div>
+										</li>
+										
+										
+									</ul>	
+								</div>						
+							</div>
+						
+						
+							<ul class="postProjUl marg0">
+								<li id="homeownlogin" style="display:none;position:relative;">
+									<span class="registerHead">Log In To Your Existing Account</span>
+									<div class="pull-right">
+										<a href="javascript:void(0);" class="already" id="createnewacc" style="display:none;" onclick="return postProjectShowHide(2);">Want to Create a New Account?</a>	
+									</div>
+									<ul class="postProjUl margBot0 clr">
+										<li class="control-group">
+											<div class="control-label">
+												<label for="business_name">Email<span class="starcolor">*</span></label>
+											</div>
+											<div class="controls">
+												<input type="text" value="" id="home_loginEmail" name="home_loginEmail" value="" class="form-control" />
+												<label class="postProjErr home_loginEmail"></label>
+											</div>
+										</li>
+										
+										<li class="control-group">
+											<div class="control-label">
+												<label for="business_name">Password<span class="starcolor">*</span></label>
+											</div>
+											<div class="controls">
+												<input type="password" value="" id="home_loginPassword" name="home_loginPassword" value="" class="form-control" autocomplete="off" />
+												 <label class="postProjErr home_loginPassword"></label>
+											</div>
+										</li>
+										<li class="control-group">
+											<div class="empty control-label">
+												<label for="business_name">&nbsp;</label>
+											</div>
+											<div class="controls">
+												<a href="" class="already">Reset your password</a>
+											</div>
+										</li>
+									</ul>
+								</li>
+								<li class="control-group">
+									<div class="empty control-label">
+										<label for="business_name">&nbsp;</label>
+									</div>
+									<div class="controls">
+										<input type="submit" class="btn btn-primary"  value="Post a Project" />
+									</div>
+								</li>
+							</ul>
+					</div>       
+					             
+				</form> 
+			</div>		
+		</div>
+		<div class="postJobRight col-md-4">			
+			<div class="postRightInner">
+				<div class="postRightHead">Dear Clients,</div>
+				<div class="postRightDesc">
+					First you will need to fill out this form, describing what needs to be done. Once your Project is approved and posted on the site, relevant Business people will be alerted. You'll receive email alerts when your Project starts getting interest and you'll then compare Contractor by reviewing profiles, work history, qualifications and customer reviews.
+				</div>					
+				<div class="postRightFoot margTop20">Kind Regards,</div>
+				<div class="postRightFoot">HandyMan Team</div>
+				<a href="http://www.justmail.in/platinum/postproject" id="rightbtnlink" class="already"  style="display:none;">Get Started Now</a>	
+			</div>
+		</div>
+	</div>
+</div>
+	<footer>
+		<div class="footer">
+			<div class="container">
+				<div class="row-fluid">
+					<div class="col-md-12 padtopBot15">
+						<ul class="col-md-3 footerUl2">
+							<li>
+								<h1>How It Works</h1>
+							</li>
+							<li><a href="">Contractor Registration</a>
+							</li>
+							<li><a href="">Find Contractor</a>
+							</li>
+							<li><a href="">Find Projects</a>
+							</li>
+							<li><a href="">FAQ</a>
+							</li>
+						</ul>
+						<ul class="col-md-3 footerUl2">
+							<li>
+								<h1>How Can We Help You?</h1>
+							</li>
+							<li><a href="">About us</a>
+							</li>
+							<li><a href="">Privacy Policy</a>
+							</li>
+							<li><a href="">Terms &amp; Conditions</a>
+							</li>
+							<li><a href="">Testimonial</a>
+							</li>
+							<li><a href="">Contact Us</a>
+							</li>
+						</ul>
+						<ul class="col-md-3 footerUl1">
+							<li class="margBot0">
+								<h1>Follow Us</h1>
+							</li>
+							<li>
+								<a href="www.facebook.com">	<span class="fbTwImage">
+						<img src="http://icons.iconarchive.com/icons/yootheme/social-bookmark/32/social-facebook-box-blue-icon.png" alt="" title="Facebook" />
+					</span>
+									<span class="fbTwitterFooterCnt">Facebook</span>
+								</a>
+							</li>
+							<li>
+								<a href="www.twitter.com">	<span class="fbTwImage">
+						<img src="http://icons.iconarchive.com/icons/yootheme/social-bookmark/32/social-twitter-box-blue-icon.png" alt="" title="Twitter" />
+					</span>
+									<span class="fbTwitterFooterCnt">Twitter</span>
+								</a>
+							</li>
+							<li>
+								<a href="www.google.com">	<span class="fbTwImage">
+						<img src="http://icons.iconarchive.com/icons/yootheme/social-bookmark/32/social-google-box-blue-icon.png" alt="" title="google" />
+					</span>
+									<span class="fbTwitterFooterCnt">google</span>
+								</a>
+							</li>
+						</ul>
+						<div class="col-md-3 footerLftSide alignCenter">
+							<h2 class="footerLftSideHead">The Best Way to Find a Reliable Builder</h2>
+							<span class="footerLftSideDesc alignLft">
+				Every day, thousands of people depend on  HandyMan trusted review system to take the worry out of finding professional local builders & Contractor.
+			</span>
+							<a class="footerjobpost relative" href="">
+				Post Project
+				
+					<span class="footerBtnArrow"></span>
+					<span class="footerPostMsg">Please login as a Home Owner</span>
+				
+			</a>	 
+						</div>
+					</div>
+				</div>
+				<div class="copyrightContain">
+					<div class="copyright">Powered by <a href="" target="blank">Copyright@2014 - HandyMan</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>
