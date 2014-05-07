@@ -10,7 +10,7 @@ class HomeController extends Controller
     {
     	$this->pageTitle = 'Welcome to Handyman.com';
     	$this->cities = Cities::model()->findAll(array('order' => 'RAND()','limit'=>10));
-    	$param['projects'] = '';
+    	$param['projects'] = Projecttypes::model()->findAll(array('order' => 'Name ASC'));
         $this->render('index', $param);
     }
 }

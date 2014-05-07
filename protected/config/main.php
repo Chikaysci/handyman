@@ -106,7 +106,7 @@ return array(
 	return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'Contrib Api',
-    'theme'=>'default',
+    'defaultController'=>'home',
 	'charset'=>'utf-8',
 	'import'=>array(
         'application.models.*',

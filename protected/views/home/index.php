@@ -75,78 +75,23 @@
 				<div class="findMoreUlBox col-md-12 offset0">
 					<h5>Choose Your Project</h5>
 					<ul class="findMoreContractUl col-md-12" style="overflow:hidden;">
-						<li class="col-md-3  offset0 clr">	
-						<a href="">Architects</a>	
-						</li>
-						<li class="col-md-3 ">	
-						<a href="">Basements</a>	
-						</li>
-						<li class="col-md-3 ">	
-						<a href="">Bathrooms</a>	
-						</li>
-						<li class="col-md-3 ">	
-						<a href="">Carpet and Upholstery Cleaning</a>	
-						</li>
-						<li class="col-md-3  offset0 clr">	
-						<a href="">Concrete & Masonry</a>	
-						</li>
-						<li class="col-md-3 ">	
-						<a href="">Decks</a>	
-						</li>
-						<li class="col-md-3 ">	
-						<a href="">Dormers & Extensions</a>	
-						</li>
-						<li class="col-md-3 ">	
-						<a href="">Driveways</a>	
-						</li>
-						<li class="col-md-3  offset0 clr">	
-						<a href="">Electricians</a>	
-						</li>
-						<li class="col-md-3 ">	
-						<a href="">Fencing</a>	
-						</li>
-						<li class="col-md-3 ">	
-						<a href="">Flooring Specialists</a>	
-						</li>
-						<li class="col-md-3 ">	
-						<a href="">Framing</a>	
-						</li>
-						<li class="col-md-3  offset0 clr">	
-						<a href="">General Contractors</a>	
-						</li>
-						<li class="col-md-3 ">	
-						<a href="">Gutters</a>	
-						</li>
-						<li class="col-md-3 ">	
-						<a href="">Heating & Cooling</a>	
-						</li>
-						<li class="col-md-3 ">	
-						<a href="">Insulation</a>	
-						</li>
-						<li class="col-md-3  offset0 clr">	
-						<a href="">Kitchens</a>	
-						</li>
-						<li class="col-md-3 ">	
-						<a href="">Landscaping</a>	
-						</li>
-						<li class="col-md-3 ">	
-						<a href="">Painters</a>	
-						</li>
-						<li class="col-md-3 ">	
-						<a href="">Plumbing</a>	
-						</li>
-						<li class="col-md-3  offset0 clr">	
-						<a href="">Roofing</a>	
-						</li>
-						<li class="col-md-3 ">	
-						<a href="">Siding</a>	
-						</li>
-						<li class="col-md-3 ">	
-						<a href="">Sunrooms</a>	
-						</li>
-						<li class="col-md-3 ">	
-						<a href="">Windows, Doors & Skylights</a>	
-						</li>
+						
+						<?php if (count($projects)>0):?>
+						   <?php $i=1;?>
+						   <?php foreach($projects as $k=>$v):?>
+						    <?php if (($i % 4) ==0  || ($i==1)):?>
+						        <?php $class="col-md-3  offset0 clr"?>
+						        <?php else:?>
+						         <?php $class="col-md-3"?>
+						    <?php endif?>
+						   	<li class="<?php echo $class?>">	
+							     <a href=""><?php echo $v->Name?></a>	
+							    </li>
+						     <?php $i++;?>
+							<?php endforeach;?>
+					    <?php endif;?>	
+						
+						
 					</ul>
 				</div>
 			</div>
